@@ -19,14 +19,19 @@ export const TodoList = ({
   return (
     <ul className="todoList">
       {todos.map((item, i) => (
-        <li key={i} className={item.done ? "done" : undefined}>
-          <span data-testid={`todo${i}`}>{item.text}</span>
+        <li
+          key={i}
+          data-testid={`todo${i}`}
+          className={item.done ? "done" : undefined}
+        >
+          <span>{item.text}</span>
           <button onClick={() => changeDone(i)}>
             {item.done ? "Mark undone" : "Mark done"}
           </button>
           {i === editModeId ? (
             <>
               <input
+                aria-label="edit-todo-input"
                 value={todoInput}
                 onChange={(e) => setTodoInput(e.target.value ?? "")}
                 className="addTodo"

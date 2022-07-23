@@ -36,6 +36,7 @@ export default function App() {
     <div className="todoListApp">
       <div className="forsta-logo" />
       <input
+        aria-label="add-todo-input"
         value={todoInput}
         onChange={(e) => setTodoInput(e.target.value ?? "")}
         className="addTodo"
